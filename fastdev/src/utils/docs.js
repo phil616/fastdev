@@ -1,0 +1,15 @@
+export default {
+    "terms":"Terms and Conditions:\n\n## 1. Terms\n\nBy accessing this web site, you are agreeing to be bound by these \nterms of service, all applicable laws and regulations, and agree that you \n",
+    "privacy":"Privacy Policy:\n\nUse of this site is subject to my privacy policy.",
+    "contact":"Contact Us:\n\nIf you have any questions or comments about my web site, please contact me.",
+    "security":"Security Information:\n\nThis site is hosted in a virtual private server. My web site does not use cookies.",
+    "status":"Status:\n\nI will try to keep this site up and running all the time. However, I cannot \nguarantee that it will be available 24/7.",
+    "docs":"Docs:\n\nThis is a test",
+    "manageCookies":"Manage Cookies:\n\nYou can set your browser to not accept cookies, and the site will work \nwithout them. This can reduce some of its features.",
+    "report":"Report a Problem:\n\nIf you think that this site is not working properly, please report it.",
+    "icp":"None",
+    "copyRight":"Copyright 2019, <NAME>",
+    "poweredBy":"Powered by",
+    "anti-fraud":"Anti-Fraud",
+    "filing":"Filing",
+}
