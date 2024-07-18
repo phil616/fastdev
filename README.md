@@ -1,8 +1,47 @@
 # FastDev
 
-The FastDev Project is a quick development framework for build a backend application
+The FastDev Project is a quick development framework for build a Web application
 
+## Architecture
 
+1. Frontend:
+    1.1 Frontend page for public access AKA UserEnd
+    1.2 Frontend page for admin access AKA AdminEnd
+2. Backend:
+    2.1 FastAPI backend for OAuth 2.0 Support (Authentication and Authorization Server)
+    2.2 Springboot backend for CURD support (Resource Server)
+3. Database:
+    3.1 MySQL
+    3.2 SQLite
+    3.3 Postgresql
+    3.4 MongoDB
+4. Cache:
+    4.1 Redis
+5. Message Queue:
+    5.1 RabbitMQ
+    5.2 Etcd
+6. Support
+    6.1 Docker
+    6.2 Docker Compose
+7. Docker Components
+    7.1 Nginx
+    7.2 Redis
+    7.3 RabbitMQ
+    7.4 Etcd
+    7.5 MySQL
+    7.6 MongoDB
+    7.7 Postgresql
+    7.8 Network Bridge
+    7.9 Fail2Ban
+
+# For Quick Start
+1. AdminEnd: SpringBoot Ruoyi -- Ruoyi-Vue
+2. UserEnd: Vue -- Vuetify + FastDev
 ## TODOS
 - [ ] add oss persistences layer
 - [ ] auto log, auto backup and auto storage
+
+## Tests
+
+coverage run -m pytest .\tests.py
+coverage report

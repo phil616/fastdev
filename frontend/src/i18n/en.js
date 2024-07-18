@@ -21,6 +21,10 @@ export default {
         "Register": "Register",
       },
       footers:{
+        "Product": "Product",
+        "Platform": "Platform",
+        "Support": "Support",
+        "Company": "Company",
         "terms": "Terms",
         "privacy": "Privacy",
         "contact": "Contact Us",
@@ -28,15 +32,29 @@ export default {
         "status":"Status",
         "docs":"Docs",
         "manageCookies":"Manage Cookies",
-        "report":"Report"
-      },
-      footerLabels:{
+        "report":"Report",
         "icp":"ICP",
         "copyRight":"Copyright",
         "allRightsReserved":"All Rights Reserved",
         "poweredBy":"Powered by",
         "anti-fraud":"Anti-fraud",
         "filing":"Filing",
+      },
+      doc:{
+        "TermsDoc": "Terms of Service",
+        "PrivacyDoc": "Privacy Policy",
+        "ContactDoc": "Contact Us",
+        "SecurtyDoc": "Security",
+        "StatusDoc": "Status",
+        "ManageCookiesDoc": "Manage Cookies",
+        "IcpDoc": "ICP",
+        "FilingDoc": "Filing",
+        "AnitFraudDoc": "Anti-fraud",
+        "ReportDoc": "Report",
+        "DocsDoc": "Documents",
+      },
+      errorMsg:{
+        "contentError":"Due to unknown reasons, the latest content cannot be loaded. The content you see below may have changed, but it is still valid within a certain range and has limited reference value. If you want to know why the problem occurred, please contact us by email or check the system status."
       }
     }
   };

@@ -1,14 +1,11 @@
 <template>
     <v-app>
       <v-app-bar app color="primary" dark    clipped-left >
-        <v-app-bar-nav-icon @click="changeDrawerStatus"   ></v-app-bar-nav-icon>
+        <v-btn icon @click="changeDrawerStatus"><svg-icon type="mdi" @click="changeDrawerStatus" :path="path"></svg-icon></v-btn>
         <div class="d-flex align-center">
-          <v-img alt="Vuetify Logo" class="shrink mr-2" contain src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-            transition="scale-transition"
-            width="40" />
-  
-          <v-img alt="Vuetify Name" class="shrink mt-1 hidden-sm-and-down" contain min-width="100" src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-            width="100" />
+          <v-app-bar-title class="text-h6">
+             {{ $t('message.application') }}
+          </v-app-bar-title>
         </div>
   
         <v-spacer></v-spacer>
@@ -78,6 +75,9 @@
     </v-app>
   </template>
 <script>
+import SvgIcon from '@jamescoyle/vue-icon';
+import { mdiMenuClose } from '@mdi/js';
+
 import Header from '@/components/HeaderPage.vue';
 import LanguageSwitcher from '@/components/LanguageSwitcher.vue';
 import ThemeSwithcer from '@/components/ThemeSwithcer.vue';
@@ -91,6 +91,7 @@ export default {
     Header,
     Footer,
     ThemeSwithcer,
+    SvgIcon,
     LanguageSwitcher,
   },
 
@@ -140,6 +141,7 @@ export default {
 
   data: () => ({
     //
+    path: mdiMenuClose,
     items: [],
   }),
 

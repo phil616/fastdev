@@ -8,27 +8,33 @@ from pydantic import (
 )
 from pydantic_core import MultiHostUrl
 from pydantic_settings import BaseSettings
-from typing_extensions import Self,List
+from typing_extensions import Self,List,Union
 from os import walk, path
 
 # Default String  = "CHANGETHIS"
 class Settings(BaseSettings):
     # ---- Project Basic Config ----
     MODEL_DIR:str = Field(default="model")
-
+    ENVIRONMENT:str = Field(default="development")
+    
+    # STATIC_DIR: str = path.join(getcwd(), "static")
+    # TEMPLATE_DIR: str = path.join(STATIC_DIR, "templates")
     # ---- Application Basic Config ----
     PROJECT_NAME: str = Field(default="FastDev",description="")
     APP_NAME: str = Field(default="0.0.1",description="")
     APP_DESC: str = Field(default="FastDev",description="")
+    APP_VERSION: str = Field(default="0.0.1",description="")
     API_V1_STR: str = Field(default="/api/v1")
-
+    # ---- OpenAPI -----
+    LOGO_URL: str = Field(default="/logo-teal.png")
+    SWAGGER_UI_OAUTH2_REDIRECT_URL: str = Field(default="/api/v1/test/oath2")
     # ---- MySQL Base ----
-    MYSQL_HOST:str
-    MYSQL_PORT:int
-    MYSQL_USER:str
-    MYSQL_PASSWORD:str
-    MYSQL_DB:str
-    MYSQL_TIMEZONE:str
+    MYSQL_HOST:str = Field(default="localhost")
+    MYSQL_PORT:int = Field(default=3306)
+    MYSQL_USER:str = Field(default="root")
+    MYSQL_PASSWORD:str = Field(default="<PASSWORD>")
+    MYSQL_DB:str = Field(default="app")
+    MYSQL_TIMEZONE:str = Field(default="Asia/Shanghai")
 
     @computed_field
     @property
@@ -102,12 +108,12 @@ class Settings(BaseSettings):
     SMTP_TLS: bool = True
     SMTP_SSL: bool = False
     SMTP_PORT: int = 587
-    SMTP_HOST: str | None = None
-    SMTP_USER: str | None = None
-    SMTP_PASSWORD: str | None = None
+    SMTP_HOST: Union[str, None] = None
+    SMTP_USER: Union[str, None] = None
+    SMTP_PASSWORD: Union[str, None] = None
     # TODO: update type to EmailStr when sqlmodel supports it
-    EMAILS_FROM_EMAIL: str | None = None
-    EMAILS_FROM_NAME: str | None = None
+    EMAILS_FROM_EMAIL: Union[str , None] = None
+    EMAILS_FROM_NAME: Union[str, None] = None
 
     # ---- Redis ----
 
@@ -137,7 +143,7 @@ class Settings(BaseSettings):
     ENABLE_BACKEND_CORS_ORIGINS:bool = Field(default=True)
 
     # Model Secure
-    def _check_default_secret(self, var_name: str, value: str | None) -> None:
+    def _check_default_secret(self, var_name: str, value: Union[str, None]) -> None:
         if value == "CHANGETHIS":
             message = (
                 f'The value of {var_name} is "CHANGETHIS", '
@@ -150,7 +156,7 @@ class Settings(BaseSettings):
 
     @model_validator(mode="after")
     def _enforce_non_default_secrets(self) -> Self:
-        self._check_default_secret("JWT_SECRET_KEY", self.SECRET_KEY)
+        self._check_default_secret("JWT_SECRET_KEY", self.JWT_SECRET_KEY)
         self._check_default_secret("POSTGRES_PASSWORD", self.POSTGRES_PASSWORD)
         self._check_default_secret("SMTP_PASSWORD",self.SMTP_PASSWORD)
         self._check_default_secret("MYSQL_PASSWORD", self.MYSQL_PASSWORD)
