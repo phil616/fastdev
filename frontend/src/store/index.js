@@ -13,6 +13,7 @@ export default new Vuex.Store({
       "routers":[],
       "projectName":"",
       "projectVersion":"",
+      "referer":"",
     }
   },
   mutations: {

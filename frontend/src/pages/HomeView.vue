@@ -19,8 +19,8 @@
     <v-container>
       <v-row>
         <v-col cols="12" class="text-center">
-          <h1 class="display-2 mb-3">Welcome to Our Company</h1>
-          <p class="subtitle-1">We are a leading provider of innovative solutions.</p>
+          <h1 class="display-2 mb-3">{{$t('message.main.title')}}</h1>
+          <p class="subtitle-1">{{$t('message.main.subtitle')}}</p>
         </v-col>
       </v-row>
 

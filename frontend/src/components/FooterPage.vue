@@ -10,10 +10,10 @@
           <div class="footer-header mb-2">{{$t('message.footers.Product')}}</div>
           <ul class="footer-list">
 
-            <li><a href="#">安全</a></li>
-            <li><a href="#">企业版</a></li>
-            <li><a href="#">客户案例</a></li>
-            <li><a href="#">定价</a></li>
+            <li><a href="/redirect?gs=policy">{{$t('message.gs.policy')}}</a></li>
+            <li><a href="/redirect?gs=education">{{$t('message.gs.education')}}</a></li>
+            <li><a href="/redirect?gs=financial">{{$t('message.gs.financial')}}</a></li>
+            <li><a href="/redirect?gs=general">{{$t('message.gs.general')}}</a></li>
           </ul>
         </v-flex>
       </v-col>
@@ -21,10 +21,10 @@
         <v-flex xs12 md3>
           <div class="footer-header mb-2">{{ $t('message.footers.Platform') }}</div>  
           <ul class="footer-list">
-            <li><a href="#">开发者API</a></li>
-            <li><a href="#">合作伙伴</a></li>
-            <li><a href="#">Atom</a></li>
-            <li><a href="#">Electron</a></li>
+            <li><a href="/redirect?gs=openapi">{{$t('message.gs.openapi')}}</a></li>
+            <li><a href="/redirect?gs=cooperate">{{$t('message.gs.cooperate')}}</a></li>
+            <li><a href="/redirect?gs=oa">{{$t('message.gs.oa')}}</a></li>
+            <li><a href="/redirect?gs=system">{{$t('message.gs.system')}}</a></li>
           </ul>
         </v-flex>
       </v-col>
@@ -32,11 +32,10 @@
         <v-flex xs12 md3>
           <div class="footer-header mb-2">{{ $t('message.footers.Support') }}</div>
           <ul class="footer-list">
-            <li><a href="#">文档</a></li>  
-            <li><a href="#">社区论坛</a></li>
-            <li><a href="#">培训</a></li>
-            <li><a href="#">状态</a></li>
-            <li><a href="#">联系我们</a></li>
+            <li><a href="/redirect?gs=docs">{{$t('message.gs.docs')}}</a></li>
+            <li><a href="/redirect?gs=github">{{$t('message.gs.github')}}</a></li>
+            <li><a href="/redirect?gs=contact">{{$t('message.gs.contact')}}</a></li>
+            <li><a href="/redirect?gs=report">{{$t('message.gs.report')}}</a></li>
           </ul>  
         </v-flex>
       </v-col>
@@ -44,10 +43,10 @@
         <v-flex xs12 md3>
           <div class="footer-header mb-2">{{ $t('message.footers.Company') }}</div>
           <ul class="footer-list">
-            <li><a href="#">关于</a></li>
-            <li><a href="#">博客</a></li>
-            <li><a href="#">职业</a></li>
-            <li><a href="#">商店</a></li>
+            <li><a href="/redirect?gs=fund">{{$t('message.gs.fund')}}</a></li>
+            <li><a href="/redirect?gs=website">{{$t('message.gs.website')}}</a></li>
+            <li><a href="/redirect?gs=dept">{{$t('message.gs.dept')}}</a></li>
+            <li><a href="/redirect?gs=inspect">{{$t('message.gs.inspect')}}</a></li>
           </ul>
         </v-flex>
       </v-col>
@@ -141,6 +140,7 @@ a:hover .v-icon {
 export default {
   data: () => ({
     projectName:"Vuetify.js",
+
   }),
 }
 </script>

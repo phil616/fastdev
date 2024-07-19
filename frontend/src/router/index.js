@@ -9,6 +9,7 @@ import Projects from '@/pages/ProjectsView.vue';
 import NotFound from '@/pages/NotFoundView.vue';
 import Doc from '@/pages/DocView.vue';
 import SingleDoc from '@/pages/SingleDocView.vue'
+import Redirect from '@/pages/RedirectView.vue'
 Vue.use(Router);
 
 const router = new Router({
@@ -54,6 +55,12 @@ const router = new Router({
       path: '/aboutus',
       name: 'Aboutus',
       component: Aboutus,
+    },
+    {
+      path: '/redirect',
+      name: 'Redirect',
+      component: Redirect,
+      props: true
     },
     {
       path: '*',

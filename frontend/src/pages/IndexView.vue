@@ -110,7 +110,7 @@ export default {
 
         let routekey = String(route.path).replace("/","")
         //exclude [*, "", VuePrototype, Chlildren]
-        if(!(routekey == "" || routekey == "*" || routekey == "singleDoc")&&route.parent == undefined){
+        if(!(routekey == "" || routekey == "*" || routekey == "singleDoc" || routekey =="redirect" ) && route.parent == undefined){
           routeMap[route.name] = routekey;
         }
       })

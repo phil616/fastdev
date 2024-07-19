@@ -37,9 +37,25 @@ The FastDev Project is a quick development framework for build a Web application
 # For Quick Start
 1. AdminEnd: SpringBoot Ruoyi -- Ruoyi-Vue
 2. UserEnd: Vue -- Vuetify + FastDev
-## TODOS
-- [ ] add oss persistences layer
-- [ ] auto log, auto backup and auto storage
+
+
+## OAuth 2.0
+
+1. User
+    1.1 username & password
+    1.2 email
+2. Client
+    2.1 Public Client
+    2.2 Admin Client
+3. Resource Server
+    3.1 Picbed
+    3.2 Articles
+    3.3 Object
+    3.4 File
+4. Authorization Server
+
+## RBAC
+
 
 ## Tests
 

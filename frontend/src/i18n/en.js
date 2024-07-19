@@ -1,11 +1,40 @@
 export default {
     message: {
+      main:{
+        "title": "General Solutions",
+        "subtitle":"General Solutions is the market-based service provided by Green Shadow",
+
+      },
+      redirect:{
+        "header":"Redirecting to",
+
+        "content":"You will be redirected to the target page in 3 seconds. If you do not want to wait, please click the button below.",
+      },
       shareThisPage: 'Share this page',
       hello: 'Hello World!',
       welcome: 'Welcome to Vuetify!',
-      application: "Application",
+      application: "GS",
       startup: 'Startup',
       drawback: 'Drawback',
+      gs:{
+        "policy": "Policy Research",
+        "education":"Education Research",
+        "financial": "Financial Research",
+        "general": "General Research",
+        "openapi": "Open API",
+        "cooperate": "Cooperation",
+        "oa": "Office Automation",
+        "system": "Green Shade System",
+        "docs":"Documents",
+        "github": "Github",
+        "contact": "Contact Us",
+        "report": "Report",
+        "fund": "Foundation",
+        "website": "Website",
+        "dept": "Department",
+        "tech": "Technology",
+        "inspect": "Disciplinary Committee",
+      },
       routers:{
         "Doc":"Documents",
         "Home": "Home",
@@ -49,7 +78,7 @@ export default {
         "ManageCookiesDoc": "Manage Cookies",
         "IcpDoc": "ICP",
         "FilingDoc": "Filing",
-        "AnitFraudDoc": "Anti-fraud",
+        "AntiFraudDoc": "Anti-fraud",
         "ReportDoc": "Report",
         "DocsDoc": "Documents",
       },

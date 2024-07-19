@@ -137,7 +137,10 @@ class Settings(BaseSettings):
     # ---- Message Queue ----
 
     # ---- Etcd ----
-
+    ETCD_HOST: str = "localhost"
+    ETCD_PORT: int = 2379
+    ETCD_USERNAME: str = "root"
+    ETCD_PASSWORD: str = "<PASSWORD>"
     # ---- Switches ----
     ENABLE_SYSTEM_SIGNAL:bool = Field(default=True)
     ENABLE_BACKEND_CORS_ORIGINS:bool = Field(default=True)

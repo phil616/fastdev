@@ -18,7 +18,7 @@ export default {
   
   created() {
     this.$store.dispatch('initGlobalTextDict',{
-      "title":"FastDev",
+      "title":"Galaxy Solutions",
       "routers":{
         "Home":"home",
         "Projects":"projects",
@@ -26,8 +26,9 @@ export default {
         "Productions": "productions",
         "About us": "aboutus",
       },
-      "projectName":"FastDev",
+      "projectName":"Galaxy Solutions",
       "projectVersion":"0.0.1",
+      "referer":"https://greenshadecapital.com"
     })
   }
 };

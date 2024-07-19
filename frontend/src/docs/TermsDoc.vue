@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     fetchTermsOfService() {
-      http.get('/doc/anti-fraud').then(res => {
+      http.get('/doc/terms').then(res => {
           this.termsOfService = res.data;
       }).catch(err => {
           console.log(err)
