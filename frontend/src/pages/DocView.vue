@@ -13,7 +13,6 @@
                 </v-card-title>
     <v-list dense>
       <v-list-item-group
-       
         color="primary"
       >
         <v-list-item
@@ -29,7 +28,6 @@
         </v-list-item>
       </v-list-item-group>
     </v-list>
-
             </v-card>
         </v-col>
         </v-row>

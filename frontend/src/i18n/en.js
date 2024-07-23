@@ -1,7 +1,9 @@
+
+
 export default {
     message: {
       main:{
-        "title": "General Solutions",
+        "title":process.env.VUE_APP_PROGNAME,
         "subtitle":"General Solutions is the market-based service provided by Green Shadow",
 
       },
@@ -13,7 +15,7 @@ export default {
       shareThisPage: 'Share this page',
       hello: 'Hello World!',
       welcome: 'Welcome to Vuetify!',
-      application: "GS",
+      application:  "Application",
       startup: 'Startup',
       drawback: 'Drawback',
       gs:{
@@ -73,7 +75,7 @@ export default {
         "TermsDoc": "Terms of Service",
         "PrivacyDoc": "Privacy Policy",
         "ContactDoc": "Contact Us",
-        "SecurtyDoc": "Security",
+        "SecurityDoc": "Security",
         "StatusDoc": "Status",
         "ManageCookiesDoc": "Manage Cookies",
         "IcpDoc": "ICP",

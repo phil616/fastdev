@@ -34,7 +34,7 @@ export default {
       defaultTermsOfService: {
         title: "ICP信息",
         content: {
-        "注意": "该网站尚未取得ICP备案或无需ICP备案。"
+        "注意": "详见页脚。"
         }
       }
     };

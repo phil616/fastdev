@@ -7,13 +7,13 @@
               <v-card-title>
                 <v-row>
                   <v-col class="text-left">
-                    <h1 class="display-1">NOTFOUND</h1>
+                    <h1 class="display-1">Productions</h1>
                   </v-col>
                 </v-row>
               </v-card-title>
               <v-card-text>
                 <div class="text-justify">
-                  PROD
+                  No productions yet.
                 </div>
                 </v-card-text>
             </v-card>

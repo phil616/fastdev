@@ -7,13 +7,13 @@
               <v-card-title>
                 <v-row>
                   <v-col class="text-left">
-                    <h1 class="display-1">NOTFOUND</h1>
+                    <h1 class="display-1">Notifications</h1>
                   </v-col>
                 </v-row>
               </v-card-title>
               <v-card-text>
                 <div class="text-justify">
-                  RRNOTENOTE
+                  No notifications yet.
                 </div>
                 </v-card-text>
             </v-card>

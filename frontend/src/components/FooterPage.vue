@@ -58,7 +58,7 @@
       <v-layout row wrap>
         <v-flex xs12 md6 class="text-xs-center text-md-left">
           <div>
-            © {{ new Date().getFullYear() }} {{projectName}} All Rights Reserved.
+            © {{ new Date().getFullYear() }} {{$store.state.globalTextDict.projectName}} All Rights Reserved.
           </div>
           <ul class="footer-bottom-list mt-2">
             <li><a href="/singleDoc?name=TermsDoc">{{$t('message.footers.terms')}}</a></li>
@@ -67,11 +67,24 @@
             <li><a href="/singleDoc?name=SecurityDoc">{{$t('message.footers.security')}}</a></li>
             <li><a href="/singleDoc?name=StatusDoc">{{$t('message.footers.status')}}</a></li>
             <li><a href="/singleDoc?name=ManageCookiesDoc">{{$t('message.footers.manageCookies')}}</a></li>
-            <li><a href="/singleDoc?name=IcpDoc">{{$t('message.footers.icp')}}</a></li>
+            <!--
+                        <li><a href="/singleDoc?name=IcpDoc">{{$t('message.footers.icp')}}</a></li>
+            -->
             <li><a href="/singleDoc?name=FilingDoc">{{$t('message.footers.filing')}}</a></li>
             <li><a href="/singleDoc?name=AntiFraudDoc">{{$t('message.footers.anti-fraud')}}</a></li>
             <li><a href="/singleDoc?name=DocsDoc">{{$t('message.footers.docs')}}</a></li>
             <li><a href="/singleDoc?name=ReportDoc">{{$t('message.footers.report')}}</a></li>
+            
+          </ul>
+        </v-flex>
+      </v-layout>
+      
+      <v-layout row wrap>
+        <v-flex xs12 md6 class="text-xs-center text-md-left">
+          <ul class="footer-bottom-list mt-2">
+            <li><img :src="icpImage" style="width: 8%;"><a href="https://beian.mps.gov.cn/#/query/webSearch?code=22011302000114" rel="noreferrer" target="_blank">{{$store.state.globalTextDict.icpa}}</a></li>
+            <li><a href="https://beian.miit.gov.cn/" rel="noreferrer" target="_blank">{{$store.state.globalTextDict.icp}}</a></li>
+            
           </ul>
         </v-flex>
       </v-layout>
@@ -139,8 +152,8 @@ a:hover .v-icon {
 
 export default {
   data: () => ({
-    projectName:"Vuetify.js",
-
+    icpImage: require('../assets/icp.png'),
   }),
+
 }
 </script>

@@ -23,12 +23,14 @@ npm install vuex@3 --save
 ```
 npm install vue-i18n@7 --save
 ```
-
+4. axios
 ```
 npm install axios --save
 ```
-
+5. mdi
+```
 npm install @mdi/js @jamescoyle/vue-icon
+```
 
 ## Project setup
 ```

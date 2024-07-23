@@ -35,8 +35,17 @@ The FastDev Project is a quick development framework for build a Web application
     7.9 Fail2Ban
 
 # For Quick Start
-1. AdminEnd: SpringBoot Ruoyi -- Ruoyi-Vue
-2. UserEnd: Vue -- Vuetify + FastDev
+
+## GT
+Gt is one of the quick dev project which define a tool chain for build a web application
+
+1. AdminEnd:
+    1.1 FastAPI as OAuth2.0 Authorization Server
+    1.2 SpringBoot Background as Resource Server
+    1.3 Ruoyi Admin page as AdminEnd
+
+2. UserEnd:
+    2.1 Vue / Vuetify as Frontend
 
 
 ## OAuth 2.0
@@ -61,3 +70,15 @@ The FastDev Project is a quick development framework for build a Web application
 
 coverage run -m pytest .\tests.py
 coverage report
+
+## Questions
+1. Docker Images
+    Due to the network problem, docker images can not be pulled from docker hub.
+
+2. Linux Platforms
+
+3. Tech Stack
+
+## LICENSE
+
+None

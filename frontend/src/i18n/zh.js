@@ -1,7 +1,7 @@
 export default {
     message: {
       main:{
-        "title": "通用解决方案",
+        "title":process.env.VUE_APP_PROGNAME,
         "subtitle":"通用解决方案服务平台是绿荫提供的市场基础服务",
       },
       redirect:{
@@ -11,7 +11,7 @@ export default {
       shareThisPage: '分享此页面',
       hello: '你好，世界！',
       welcome: '欢迎使用 Vuetify!',
-      application : '绿荫',
+      application : '应用',
       startup: '启动器',
       drawback: '收起菜单',
       routers:{
@@ -73,7 +73,7 @@ export default {
           "TermsDoc": "服务条款",
           "PrivacyDoc": "隐私政策",
           "ContactDoc": "联系我们",
-          "SecurtyDoc": "安全",
+          "SecurityDoc": "安全",
           "StatusDoc": "状态",
           "ManageCookiesDoc": "管理 Cookies",
           "IcpDoc": "ICP 备案",

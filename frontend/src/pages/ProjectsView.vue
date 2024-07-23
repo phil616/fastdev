@@ -7,13 +7,13 @@
               <v-card-title>
                 <v-row>
                   <v-col class="text-left">
-                    <h1 class="display-1">NOTFOUND</h1>
+                    <h1 class="display-1">Projects</h1>
                   </v-col>
                 </v-row>
               </v-card-title>
               <v-card-text>
                 <div class="text-justify">
-                  PROG
+                  No Projects Are Available
                 </div>
                 </v-card-text>
             </v-card>

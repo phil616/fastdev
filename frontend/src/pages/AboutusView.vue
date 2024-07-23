@@ -14,26 +14,26 @@
               <v-card-text>
                 <v-row class="mb-4">
                   <v-col>
-                    <h2 class="headline mb-2">我们的使命</h2>
-                    <p>我们的使命是为客户提供卓越的产品和服务，推动行业的创新和发展。</p>
+                    <h2 class="headline mb-2">绿荫项目三期</h2>
+                    <p>No Connection</p>
                   </v-col>
                 </v-row>
                 <v-row class="mb-4">
                   <v-col>
-                    <h2 class="headline mb-2">我们的团队</h2>
-                    <p>我们的团队由一群充满激情和创意的专业人士组成，致力于实现公司的愿景和目标。</p>
+                    <h2 class="headline mb-2">绿荫合作方</h2>
+                    <p>No Connection</p>
                   </v-col>
                 </v-row>
                 <v-row class="mb-4">
                   <v-col>
-                    <h2 class="headline mb-2">我们的历史</h2>
-                    <p>公司成立于20XX年，经过多年的发展，我们已经成为行业的领导者。</p>
+                    <h2 class="headline mb-2">该站归属</h2>
+                    <p>No Connection</p>
                   </v-col>
                 </v-row>
                 <v-row class="mb-4">
                   <v-col>
                     <h2 class="headline mb-2">联系我们</h2>
-                    <p>如果您有任何问题或需要更多信息，请随时联系我们。我们期待与您合作。</p>
+                    <p>No Connection</p>
                   </v-col>
                 </v-row>
               </v-card-text>
