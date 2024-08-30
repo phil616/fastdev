@@ -3,8 +3,9 @@
 # manage user roles [create user] [edit user] [delete user] [assign role] [revoke role] [view user roles]
 
 from response.std import URFRouter
-
-user_router = URFRouter(prefix="/user")
+from fastapi import Security
+from core.authorize import check_permissions
+user_router = URFRouter(prefix="/user", dependencies=[Security(check_permissions, scopes=["user:read", "user:write"])])
 
 @user_router.get("/info")
 def get_user_info(request):

@@ -4,6 +4,8 @@ from model.File import File as FileModel
 from aiofiles import open as aio_open
 from core.utils import get_random_string, get_bytes_hash
 from os import path
+from fastapi import Security
+from core.authorize import check_permissions
 
 async def save_file(file: bytes, file_name: str):
     async with aio_open(file_name, "wb") as f:
@@ -15,7 +17,7 @@ async def get_file(file_name: str)->bytes:
         contents = await f.read()
         return contents
 
-file_router = APIRouter(prefix="/file")
+file_router = APIRouter(prefix="/file",dependencies=[Security(check_permissions, scopes=["user:read", "user:write"])])
 
 @file_router.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
