@@ -8,8 +8,7 @@ _logger.remove()  # remove default logger
 log_dir = "log"
 os.makedirs(log_dir, exist_ok=True)
 
-format_str = "{time:YYYY-MM-DD HH:mm:ss} - app logger.io -[{level}]- {message}"
-
+format_str = "{time:YYYY-MM-DD HH:mm:ss} - app logger.io - {level} - {message}"
 
 # stream
 _logger.add(

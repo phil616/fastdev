@@ -1,7 +1,8 @@
+import asyncio
 from http import HTTPStatus
 import traceback
 from fastapi import Request
-from response.std_resp import create_response
+from response.std import create_response
 
 
 def get_http_status_description(status_code: int) -> str:
@@ -46,6 +47,10 @@ async def global_exception_handler(req: Request, exc: Exception):
     :param exc: Exception object
     :return: JSON response with error details
     """
+    # ignore asyncio.exceptions.CancelledError  allow Ctrl + C to stop the server
+    if isinstance(exc, asyncio.exceptions.CancelledError):
+        return None
+
     stack_trace = traceback.format_exc()
     headers=exc.headers
     error_response = {

@@ -1,45 +1,36 @@
 
-from fastapi import FastAPI, Request, HTTPException
-from fastapi.responses import FileResponse
-from response.exceptions import global_exception_handler
-from response.std_resp import URFRouter
+from fastapi import FastAPI, HTTPException
+from response.exceptions import global_exception_handler,database_exception_handler
+from core.setting import config
+from core.lifespan import app_lifespan
+from endpoint import v1
+from tortoise.exceptions import BaseORMException
 
-app = FastAPI()
+app = FastAPI(
+    debug=config.DEBUG,
+    title=config.APP_NAME,
+    description=config.APP_DESC,
+    version=config.APP_VER,
+    lifespan=app_lifespan,
+)
+
+if config.ENABLE_BACKEND_CORS_ORIGINS:
+    from fastapi.middleware.cors import CORSMiddleware
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=config.CORS_ALLOW_ORIGINS,
+        allow_credentials=config.CORS_ALLOW_CREDENTIALS,
+        allow_methods=config.CORS_ALLOW_METHODS,
+        allow_headers=config.CORS_ALLOW_HEADERS,
+    )
+
+if config.ENABLE_STATIC_DIR:
+    from fastapi.staticfiles import StaticFiles
+    app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
-router = URFRouter()
-
-@router.get("/")
-async def read_root():
-    return {"Hello": "World"}
-
-@router.get("/items/{item_id}")
-async def read_item(item_id: int):
-    return {"item_id": item_id}
-
-@router.post("/items/")
-async def create_item(item: dict):
-    return {"item": item}
-@router.get("/file")
-async def read_file():
-    return FileResponse("s.xml")
-
-
-@router.get("/string")
-async def read_string():
-    return "Hello, World!"
-
-@router.get("/json")
-async def read_json():
-    raise HTTPException(status_code=400, detail="Invalid JSON payload")
-
-app.include_router(router)
+app.include_router(v1.v1_router)
 
 
 app.add_exception_handler(HTTPException,global_exception_handler)
-
-
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+app.add_exception_handler(BaseORMException,database_exception_handler)
