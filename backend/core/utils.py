@@ -27,7 +27,7 @@ def get_offset_timestamp(offset: int = 60*60*24*7):
     return get_timestamp() + offset
 
 
-async def send_email_confirmation_link(email:str, confirmation_code:str):
+async def send_email_confirmation_link(email:str, query_url:str, confirmation_code:str):
     link = f"http://{config.SERVER_HOST}:{config.SERVER_PORT}/{config.API_STR}/regcheck?hashcode={confirmation_code}"
     email_content = f"dear {email}: click the link below to confirm your email address: {link}"
     email_obj = Email(

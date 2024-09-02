@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-
+import store from '@/store';
 Vue.use(Router);
 
 const router = new Router({
@@ -9,36 +9,58 @@ const router = new Router({
 
   routes: [
     {
-        path: "/",
-        name: "Index",
-        redirect: "/home",
+      path: "/",
+      name: "Index",
+      redirect: "/home",
     },
     {
-        path: "/home",
-        name: "Home",
-        component: () => import('@/views/HomeView.vue'),
+      path: "/home",
+      name: "Home",
+      component: () => import('@/views/HomeView.vue'),
     },
-    
+    {
+      path: "/user",
+      name: "User",
+      component: () => import('@/views/UserView.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
+      path: "/login",
+      name: "Login",
+      component: () => import('@/views/LoginView.vue'),
+      meta: { requiresAuth: false }
+    },
+    {
+      path: "/logout",
+      name: "Logout",
+      component: () => import('@/views/LogoutView.vue'),
+    },
+    {
+      path: "/register",
+      name: "Register",
+      component: () => import('@/views/RegisterView.vue'),
+      meta: { requiresAuth: false }
+    },
+    {
+      path: '*',
+      name: 'NotFound',
+      component: () => import('@/views/NotFoundView.vue'),
+    }
   ]
 });
 
-function authorizationCheck(requiresAuth){
-    requiresAuth;
-    // check if user is authenticated
-    return true;
-}
+
 
 router.beforeEach((to, from, next) => {
   from;
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
   // const isAuthenticated = checkAuthorizaion()
-
-  if (authorizationCheck(requiresAuth)) {
-    next()
+  const isAuthenticated = store.getters.authenticated
+  if (requiresAuth && !isAuthenticated) {
+    next('/login')
   } else {
-    next({ name: 'Login', query: { redirect: to.fullPath } });
+    next()
   }
-  
 })
 // 全局后置钩子
 

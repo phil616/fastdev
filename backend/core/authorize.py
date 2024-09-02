@@ -76,7 +76,7 @@ def create_access_token(data: Dict) -> str:
     return jwt_token
 
 
-async def scope_contains(access_required_scope:list, user_has_scope:list) -> bool:
+def scope_contains(access_required_scope:list, user_has_scope:list) -> bool:
     """
     check if the required scope is included in the user's scope
     :param access_required_scope: resources requeired
@@ -131,15 +131,17 @@ async def check_permissions(
 
 
 
-def verify_password(password, hashed_password) -> bool: # verify password
+def verify_password(password:str, hashed_password:str) -> bool: # verify password
     return hash_util.verify_bcrypt(password, hashed_password)
 
 async def verify_user_credentials(username: str, password: str) -> Union[None, User]:
+    log.debug(f"verifying user credentials for {username}, with password {password}")
     user = await User.filter(username=username).first()
     if not user:
         return None
     if not user.is_active:
         return None
+    log.debug(f"user {username} is active, verifying password => {user.password}")
     if not verify_password(password, user.password):
         return None
     return user
@@ -152,11 +154,15 @@ async def get_user_permissions(username: str) -> list:
     if not user:
         return []
     user.user_id
-    role = await UserRole.filter(user_id=user.user_id).first()
-    if not role:
+    roles = await UserRole.filter(user_id=user.user_id).first()
+    if not roles:
         return []
-    scope = await RoleScope.filter(role=role.role).first()
-    if not scope:
-        return []
-    return scope.scope.split(",")
+    
+    permissions = []
+    for role in roles.role.split(","):
+        scope = await RoleScope.filter(role=role).first()
+        if not scope:
+            continue
+        permissions.extend(scope.scopes.split(","))
+    return permissions
 

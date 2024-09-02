@@ -6,6 +6,7 @@ from core.authorize import role_scopes
 from database.sqlite import get_sqlite_db_config
 from core.logger import log
 from tortoise import Tortoise
+from lib.hash import hash_util 
 async def setup():
 
     await Tortoise.init(get_sqlite_db_config())
@@ -24,7 +25,8 @@ async def setup():
     # init super user
     super_user = await User.filter(username=config.SUPERUSER)
     if not super_user:
-        s_user = await User.create(username=config.SUPERUSER, password=config.SUPERPASS)
+        hashed_password = hash_util.bcrypt(config.SUPERPASS)
+        s_user = await User.create(username=config.SUPERUSER, password=hashed_password)
         await UserRole.update_or_create(user_id=s_user.user_id,role=",".join(role_scopes.keys()))
     
 

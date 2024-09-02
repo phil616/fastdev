@@ -6,26 +6,29 @@
       </div>
 
       <v-spacer></v-spacer>
-
-      <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
+      <v-btn @click="$router.push('/user')" text>
+        <!--User Profile-->
+        <v-icon>mdi-account</v-icon>
       </v-btn>
     </v-app-bar>
     <Navigator/>
     <v-main>
       <router-view/>
     </v-main>
+    <Footer />
   </v-app>
 </template>
 
 <script>
+import { checkAuthorizaion, loadSessionToken } from '@/utils'
+import Footer from './components/FooterPage.vue';
 import Navigator from './components/NavigatorPage.vue';
 export default {
   name: 'App',
 
   components: {
     Navigator,
+    Footer
   },
 
   data: () => ({
@@ -36,6 +39,14 @@ export default {
       console.log('change_drawer_state')
       this.$store.dispatch('toggle_navigator_drawer');
     },
+  },
+  created() {
+    if(checkAuthorizaion()){
+      this.$store.dispatch('set_authenticated', true);
+      this.$store.dispatch('set_user_token', loadSessionToken());
+    }else{
+      this.$store.dispatch('set_authenticated', false);
+    }
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div>
         HomeView
-        <Title  :title="complexData" />
+        <Title :title="complexData" />
     </div>
 </template>
 
