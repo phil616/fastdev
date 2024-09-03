@@ -1,10 +1,10 @@
-
 from fastapi import FastAPI, HTTPException
-from response.exceptions import global_exception_handler,database_exception_handler
-from core.setting import config
-from core.lifespan import app_lifespan
-from endpoint import v1
 from tortoise.exceptions import BaseORMException
+
+from core.lifespan import app_lifespan
+from core.setting import config
+from endpoint import v1
+from response.exceptions import database_exception_handler, global_exception_handler
 
 app = FastAPI(
     debug=config.DEBUG,
@@ -16,6 +16,7 @@ app = FastAPI(
 
 if config.ENABLE_BACKEND_CORS_ORIGINS:
     from fastapi.middleware.cors import CORSMiddleware
+
     app.add_middleware(
         CORSMiddleware,
         allow_origins=config.CORS_ALLOW_ORIGINS,
@@ -26,11 +27,12 @@ if config.ENABLE_BACKEND_CORS_ORIGINS:
 
 if config.ENABLE_STATIC_DIR:
     from fastapi.staticfiles import StaticFiles
+
     app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 app.include_router(v1.v1_router)
 
 
-app.add_exception_handler(HTTPException,global_exception_handler)
-app.add_exception_handler(BaseORMException,database_exception_handler)
+app.add_exception_handler(HTTPException, global_exception_handler)
+app.add_exception_handler(BaseORMException, database_exception_handler)
